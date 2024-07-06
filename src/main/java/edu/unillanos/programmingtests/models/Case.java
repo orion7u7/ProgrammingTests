@@ -9,8 +9,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Problem {
+public class Case {
     private Long id;
-    private String description;
-    private Long evaluationId;
+    private String input;
+    private String output;
+    private Long problemId;
 }

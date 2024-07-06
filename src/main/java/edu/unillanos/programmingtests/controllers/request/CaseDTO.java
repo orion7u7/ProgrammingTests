@@ -1,4 +1,4 @@
-package edu.unillanos.programmingtests.models;
+package edu.unillanos.programmingtests.controllers.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,10 +7,11 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
-public class Problem {
+@Setter
+public class CaseDTO {
     private Long id;
-    private String description;
-    private Long evaluationId;
+    private String input;
+    private String output;
+    private ProblemDTO problem;
 }

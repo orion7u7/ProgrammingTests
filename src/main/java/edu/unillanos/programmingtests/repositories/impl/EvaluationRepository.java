@@ -13,7 +13,6 @@ import java.util.List;
 public class EvaluationRepository {
 
     private final EvaluationRepositoryJpa evaluationRepositoryJpa;
-    private final CourseRepository courseRepository;
 
     public List<Evaluation> findAll() {
         return EvaluationMapper.entityListToModelList(evaluationRepositoryJpa.findAll());
