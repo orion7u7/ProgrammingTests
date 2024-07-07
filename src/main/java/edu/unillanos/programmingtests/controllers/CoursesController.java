@@ -7,10 +7,7 @@ import edu.unillanos.programmingtests.utils.Mappers.CourseMapper;
 import edu.unillanos.programmingtests.utils.Mappers.GenericMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,12 +25,12 @@ public class CoursesController {
     }
 
     @GetMapping("/{id}")
-    public CustomResponse<CourseDTO> findById(Long id) {
+    public CustomResponse<CourseDTO> findById(@RequestParam Long id) {
         return new CustomResponse<>(genericMapper.map(courseService.findById(id), CourseDTO.class), HttpStatus.OK, "Course found successfully");
     }
 
     @PostMapping("/create")
-    public CustomResponse<CourseDTO> save(CourseDTO course) {
+    public CustomResponse<CourseDTO> save(@RequestBody CourseDTO course) {
         return new CustomResponse<>(genericMapper.map(courseService.save(CourseMapper.dtoToModel(course)), CourseDTO.class), HttpStatus.OK, "Course created successfully");
     }
 }
