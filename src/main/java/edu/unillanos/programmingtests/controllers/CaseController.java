@@ -7,10 +7,7 @@ import edu.unillanos.programmingtests.utils.Mappers.CaseMapper;
 import edu.unillanos.programmingtests.utils.Mappers.GenericMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,12 +25,12 @@ public class CaseController {
     }
 
     @GetMapping("/{id}")
-    public CustomResponse<CaseDTO> findById(Long id) {
+    public CustomResponse<CaseDTO> findById(@RequestParam Long id) {
         return new CustomResponse<>(genericMapper.map(caseService.findById(id), CaseDTO.class), HttpStatus.OK, "Case found successfully");
     }
 
     @PostMapping("/create")
-    public CustomResponse<CaseDTO> save(CaseDTO caseModel) {
+    public CustomResponse<CaseDTO> save(@RequestBody CaseDTO caseModel) {
         return new CustomResponse<>(genericMapper.map(caseService.save(CaseMapper.dtoToModel(caseModel)), CaseDTO.class), HttpStatus.OK, "Case created successfully");
     }
 }

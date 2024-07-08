@@ -36,5 +36,8 @@ public class UserRepository {
         return UserMapper.entityToModel(userRepositoryJpa.save(userEntity));
     }
 
+    public User findByEmail(String email) {
+        return UserMapper.entityToModel(userRepositoryJpa.findByEmail(email).orElse(null));
+    }
 
 }

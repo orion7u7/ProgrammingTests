@@ -7,10 +7,7 @@ import edu.unillanos.programmingtests.utils.Mappers.GenericMapper;
 import edu.unillanos.programmingtests.utils.Mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,12 +25,12 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public CustomResponse<UserDTO> findById(Long id) {
+    public CustomResponse<UserDTO> findById(@RequestParam Long id) {
         return new CustomResponse<>(genericMapper.map(userService.findById(id), UserDTO.class), HttpStatus.OK, "User found successfully");
     }
 
     @PostMapping("/create")
-    public CustomResponse<UserDTO> save(UserDTO user) {
+    public CustomResponse<UserDTO> save(@RequestBody UserDTO user) {
         return new CustomResponse<>(genericMapper.map(userService.save(UserMapper.dtoToModel(user)), UserDTO.class), HttpStatus.OK, "User created successfully");
     }
 
