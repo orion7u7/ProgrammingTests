@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Case {
-    private Long id;
+    private long id;
     private String input;
     private String output;
-    private Long problemId;
+    private long problemId;
 }

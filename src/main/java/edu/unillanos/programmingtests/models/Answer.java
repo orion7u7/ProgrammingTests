@@ -10,10 +10,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Answer {
-    private Long id;
+    private long id;
     private String sourceCode;
     private String result;
-    private Long userId;
-    private Long problemId;
-    private Long evaluationId;
+    private long userId;
+    private long problemId;
+    private long evaluationId;
+
+    public Answer(long l, String s, long l1, long l2, long l3) {
+    }
 }
