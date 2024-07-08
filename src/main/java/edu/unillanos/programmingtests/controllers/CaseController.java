@@ -25,8 +25,13 @@ public class CaseController {
     }
 
     @GetMapping("/{id}")
-    public CustomResponse<CaseDTO> findById(@RequestParam Long id) {
+    public CustomResponse<CaseDTO> findById(@PathVariable Long id) {
         return new CustomResponse<>(genericMapper.map(caseService.findById(id), CaseDTO.class), HttpStatus.OK, "Case found successfully");
+    }
+
+    @GetMapping("/problem/{problemId}")
+    public CustomResponse<List> findByProblemId(@PathVariable Long problemId) {
+        return new CustomResponse<>(genericMapper.mapList(caseService.findByProblemId(problemId), CaseDTO.class), HttpStatus.OK, "Cases found successfully");
     }
 
     @PostMapping("/create")

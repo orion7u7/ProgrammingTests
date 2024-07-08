@@ -26,4 +26,8 @@ public class CaseService {
     public Case save(Case caseModel) {
         return caseRepository.save(caseModel);
     }
+
+    public List<Case> findByProblemId(long problemId){
+        return caseRepository.findByProblemId(problemId);
+    }
 }

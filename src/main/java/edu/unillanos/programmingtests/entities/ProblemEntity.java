@@ -22,7 +22,7 @@ public class ProblemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "description_problem")
+    @Column(name = "description_problem", length = 2000)
     private String description;
 
 }

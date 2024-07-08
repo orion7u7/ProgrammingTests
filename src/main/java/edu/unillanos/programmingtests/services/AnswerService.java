@@ -31,7 +31,8 @@ public class AnswerService {
     public Answer save(Answer answer) throws IOException, InterruptedException {
         Answer answerSaved= answerRepository.save(answer);
         evaluateAnswer(answerSaved.getId());
-        return answerSaved;
+
+        return findById(answerSaved.getId());
     }
 
     public void evaluateAnswer(Long respuestaId) throws IOException, InterruptedException {

@@ -19,7 +19,7 @@ public class AnswerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "sourceCode_answer")
+    @Column(name = "sourceCode_answer", length = 2000)
     private String sourceCode;
 
     @Column(name = "result_answer")

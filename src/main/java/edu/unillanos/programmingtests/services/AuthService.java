@@ -13,12 +13,12 @@ public class AuthService {
 
     private final UserRepository userRepository;
 
-    public boolean authenticate(String email, String password) {
+    public User authenticate(String email, String password) {
         Optional<User> usuario = Optional.ofNullable(userRepository.findByEmail(email));
         if (usuario.isPresent() && usuario.get().getPassword().equals(password)) {
-            return true;
+            return usuario.get();
         }
-        return false;
+        return null;
     }
 
 }

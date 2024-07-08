@@ -25,7 +25,7 @@ public class ProblemController {
     }
 
     @GetMapping("/{id}")
-    public CustomResponse<ProblemDTO> findById(@RequestParam Long id) {
+    public CustomResponse<ProblemDTO> findById(@PathVariable Long id) {
         return new CustomResponse<>(genericMapper.map(problemService.findById(id), ProblemDTO.class), HttpStatus.OK, "Problem found successfully");
     }
 

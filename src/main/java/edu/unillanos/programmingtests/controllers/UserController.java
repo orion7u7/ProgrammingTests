@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public CustomResponse<UserDTO> findById(@RequestParam Long id) {
+    public CustomResponse<UserDTO> findById(@PathVariable Long id) {
         return new CustomResponse<>(genericMapper.map(userService.findById(id), UserDTO.class), HttpStatus.OK, "User found successfully");
     }
 
