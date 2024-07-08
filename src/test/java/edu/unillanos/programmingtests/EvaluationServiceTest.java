@@ -5,6 +5,7 @@ import edu.unillanos.programmingtests.models.Case;
 import edu.unillanos.programmingtests.repositories.impl.AnswerRepository;
 import edu.unillanos.programmingtests.repositories.impl.CaseRepository;
 import edu.unillanos.programmingtests.repositories.impl.EvaluationRepository;
+import edu.unillanos.programmingtests.services.AnswerService;
 import edu.unillanos.programmingtests.services.EvaluationService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,16 +24,13 @@ import static org.mockito.Mockito.when;
 public class EvaluationServiceTest {
 
     @Mock
-    private EvaluationRepository evaluationRepository;
-
-    @Mock
     private AnswerRepository answerRepository;
 
     @Mock
     private CaseRepository caseRepository;
 
     @InjectMocks
-    private EvaluationService evaluationService;
+    private AnswerService answerService;
 
     @Test
     public void testEvaluation() throws IOException, InterruptedException {
@@ -59,6 +57,6 @@ public class EvaluationServiceTest {
                        )
         );
 
-        evaluationService.evaluarRespuesta(1L);
+        answerService.evaluateAnswer(1L);
     }
 }
