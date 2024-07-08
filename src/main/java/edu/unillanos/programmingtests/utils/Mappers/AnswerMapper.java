@@ -42,6 +42,6 @@ public class AnswerMapper {
     }
 
     public static Answer dtoToModel(AnswerDTO answerDTO) {
-        return new Answer(answerDTO.getId(), answerDTO.getSourceCode(), answerDTO.getResult(), answerDTO.getUser().getId(), answerDTO.getProblem().getId(), answerDTO.getEvaluation().getId());
+        return new Answer(answerDTO.getId(), answerDTO.getSourceCode(), answerDTO.getResult(), answerDTO.getUser(), answerDTO.getProblem(), answerDTO.getEvaluation());
     }
 }

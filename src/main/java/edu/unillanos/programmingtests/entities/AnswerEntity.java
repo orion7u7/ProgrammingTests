@@ -23,7 +23,7 @@ public class AnswerEntity {
     private String sourceCode;
 
     @Column(name = "result_answer")
-    private String result;
+    private int result;
 
     @ManyToOne
     @JoinColumn(name = "id_user")

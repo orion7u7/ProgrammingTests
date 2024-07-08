@@ -1,8 +1,10 @@
 package edu.unillanos.programmingtests.repositories.impl;
 
 import edu.unillanos.programmingtests.entities.CaseEntity;
+import edu.unillanos.programmingtests.entities.ProblemEntity;
 import edu.unillanos.programmingtests.models.Case;
 import edu.unillanos.programmingtests.repositories.jpa.CaseRepositoryJpa;
+import edu.unillanos.programmingtests.repositories.jpa.ProblemRepositoryJpa;
 import edu.unillanos.programmingtests.utils.Mappers.CaseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -15,6 +17,7 @@ import java.util.Objects;
 public class CaseRepository {
 
     private final CaseRepositoryJpa caseRepositoryJpa;
+    private final ProblemRepositoryJpa problemRepositoryJpa;
 
     public List<Case> findAll() {
         return CaseMapper.entityListToModelList(caseRepositoryJpa.findAll());
@@ -25,7 +28,8 @@ public class CaseRepository {
     }
 
     public List<Case> findByProblemId(long problemId){
-        return CaseMapper.entityListToModelList(caseRepositoryJpa.findByProblemId(problemId));
+        ProblemEntity problemEntity = problemRepositoryJpa.findById(problemId).orElse(null);
+        return CaseMapper.entityListToModelList(caseRepositoryJpa.findByProblemId(problemEntity));
     }
 
     public Case save(Case caseModel) {

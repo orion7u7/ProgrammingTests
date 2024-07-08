@@ -33,6 +33,6 @@ public class CaseMapper {
     }
 
     public static Case dtoToModel(CaseDTO casedto) {
-        return new Case(casedto.getId(), casedto.getInput(), casedto.getOutput(), casedto.getProblem().getId());
+        return new Case(casedto.getId(), casedto.getInput(), casedto.getOutput(), casedto.getProblem());
     }
 }

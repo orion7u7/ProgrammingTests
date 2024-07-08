@@ -75,9 +75,7 @@ public class AnswerService {
             runProcess.waitFor();
 
             if (output.toString().trim().equals(casoPrueba.getOutput().trim())) {
-                answer.setResult("Correcto");
-            } else {
-                answer.setResult("Incorrecto");
+                answer.setResult(answer.getResult() +1);
             }
 
             answerRepository.save(answer);

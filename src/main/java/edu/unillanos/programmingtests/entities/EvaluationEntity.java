@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "evaluations")
@@ -27,8 +29,12 @@ public class EvaluationEntity {
     @Column(name = "date_evaluation")
     private LocalDateTime date;
 
-    @ManyToOne
-    @JoinColumn(name = "id_course", nullable = false)
-    private CourseEntity courseId;
+    @ManyToMany
+    @JoinTable(
+            name = "evaluation_problems",
+            joinColumns = @JoinColumn(name = "id_evaluation"),
+            inverseJoinColumns = @JoinColumn(name = "id_problem")
+    )
+    private List<ProblemEntity> problems;
 }
 

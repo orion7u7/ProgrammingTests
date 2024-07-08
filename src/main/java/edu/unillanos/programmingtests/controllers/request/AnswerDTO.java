@@ -10,10 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AnswerDTO {
-    private Long id;
+    private long id;
     private String sourceCode;
-    private String result;
-    private UserDTO user;
-    private ProblemDTO problem;
-    private EvaluationDTO evaluation;
+    private int result;
+    private long user;
+    private long problem;
+    private long evaluation;
 }

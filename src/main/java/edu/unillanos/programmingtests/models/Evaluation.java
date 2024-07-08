@@ -2,6 +2,8 @@ package edu.unillanos.programmingtests.models;
 
 import lombok.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -10,6 +12,6 @@ public class Evaluation {
     private Long id;
     private String name;
     private String date;
-    private Long courseId;
+    private List<Problem> problems;
 
 }

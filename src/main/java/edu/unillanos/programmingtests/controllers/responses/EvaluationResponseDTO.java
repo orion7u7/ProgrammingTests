@@ -1,5 +1,6 @@
-package edu.unillanos.programmingtests.controllers.request;
+package edu.unillanos.programmingtests.controllers.responses;
 
+import edu.unillanos.programmingtests.controllers.request.ProblemDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class EvaluationDTO {
+public class EvaluationResponseDTO {
     private Long id;
     private String name;
     private String date;
-    private List<Long> problems;
+    private List<ProblemDTO> problems;
 
 }

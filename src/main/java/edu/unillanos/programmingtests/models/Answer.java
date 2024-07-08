@@ -12,11 +12,9 @@ import lombok.Setter;
 public class Answer {
     private long id;
     private String sourceCode;
-    private String result;
+    private int result;
     private long userId;
     private long problemId;
     private long evaluationId;
 
-    public Answer(long l, String s, long l1, long l2, long l3) {
-    }
 }

@@ -12,5 +12,4 @@ import lombok.Setter;
 public class Problem {
     private Long id;
     private String description;
-    private Long evaluationId;
 }

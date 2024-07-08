@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "problems")
 @AllArgsConstructor
@@ -16,13 +19,10 @@ public class ProblemEntity {
 
     @Id
     @Column(name = "id_problem")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "description_problem")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "id_evaluation", nullable = false)
-    private EvaluationEntity evaluationId;
 }

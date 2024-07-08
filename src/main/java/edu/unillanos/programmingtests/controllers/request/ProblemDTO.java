@@ -12,5 +12,4 @@ import lombok.Setter;
 public class ProblemDTO {
     Long id;
     String description;
-    EvaluationDTO evaluation;
 }

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class ProblemMapper {
 
     public static Problem entityToModel(ProblemEntity problemEntity) {
-        return new Problem(problemEntity.getId(), problemEntity.getDescription(), problemEntity.getEvaluationId().getId());
+        return new Problem(problemEntity.getId(), problemEntity.getDescription());
     }
 
     public static List<Problem> entityListToModelList(List<ProblemEntity> problemEntityList) {
@@ -23,15 +23,11 @@ public class ProblemMapper {
         problemEntity.setId(problem.getId());
         problemEntity.setDescription(problem.getDescription());
 
-        EvaluationEntity evaluationEntity = new EvaluationEntity();
-
-        evaluationEntity.setId(problem.getEvaluationId());
-        problemEntity.setEvaluationId(evaluationEntity);
 
         return problemEntity;
     }
 
     public static Problem dtoToModel(ProblemDTO problem) {
-        return new Problem(problem.getId(), problem.getDescription(), problem.getEvaluation().getId());
+        return new Problem(problem.getId(), problem.getDescription());
     }
 }

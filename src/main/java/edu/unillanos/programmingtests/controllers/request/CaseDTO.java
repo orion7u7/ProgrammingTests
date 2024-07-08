@@ -13,5 +13,5 @@ public class CaseDTO {
     private Long id;
     private String input;
     private String output;
-    private ProblemDTO problem;
+    private long problem;
 }
